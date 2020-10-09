@@ -37,6 +37,8 @@ class _GamePageState extends State<GamePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          _scoreBoard(),
+          _currentPlayerText(),
           _buildBoard(),
           _buildPlayerMode(),
           _buildResetButton(),
@@ -53,6 +55,45 @@ class _GamePageState extends State<GamePage> {
     );
   }
 
+  _scoreBoard() {
+    return Container(
+      // padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor.withOpacity(0.25),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                'Player X',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 20,
+                ),
+              ),
+              Text(_controller.x.toString()),
+            ],
+          ),
+          Column(
+            children: [
+              Text(
+                'Player O',
+                style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 20,
+                ),
+              ),
+              Text(_controller.o.toString()),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   _buildBoard() {
     return Expanded(
       child: GridView.builder(
@@ -60,7 +101,7 @@ class _GamePageState extends State<GamePage> {
         itemCount: BOARD_SIZE,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          mainAxisSpacing: 10,
+          mainAxisSpacing: 8,
           crossAxisSpacing: 10,
           childAspectRatio: 1,
         ),
@@ -118,6 +159,9 @@ class _GamePageState extends State<GamePage> {
       String symbol =
           winner == WinnerType.player1 ? PLAYER1_SYMBOL : PLAYER2_SYMBOL;
       _showWinnerDialog(symbol);
+      setState(() {
+        _controller.scoreCount(symbol);
+      });
     }
   }
 
@@ -166,6 +210,24 @@ class _GamePageState extends State<GamePage> {
           _controller.isSinglePlayer = value;
         });
       },
+    );
+  }
+
+  _currentPlayerText() {
+    return Container(
+      height: 25,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor.withOpacity(0.25),
+      ),
+      child: Center(
+        child: Text(
+          'Player turn: ' + _controller.currentPlayerTurn(),
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontSize: 15,
+          ),
+        ),
+      ),
     );
   }
 }

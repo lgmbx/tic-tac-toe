@@ -13,7 +13,7 @@ class GameController {
   List<int> movesPlayer2 = [];
   PlayerType currentPlayer;
   bool isSinglePlayer;
-
+  int x = 0, o = 0;
 /*
   bool hasMoves() { 
     return (movesPlayer1.length + movesPLayer2.length) != BOARD_SIZE;
@@ -25,6 +25,13 @@ class GameController {
   bool get isBotTurn => isSinglePlayer && currentPlayer == PlayerType.player2;
   GameController() {
     initialize();
+  }
+
+  String currentPlayerTurn() {
+    if (currentPlayer == PlayerType.player1) {
+      return PLAYER1_SYMBOL;
+    }
+    return PLAYER2_SYMBOL;
   }
 
   void initialize() {
@@ -74,5 +81,13 @@ class GameController {
 
     moves.shuffle();
     return moves[0];
+  }
+
+  scoreCount(String symbol) {
+    if (symbol == 'X') {
+      return x++;
+    } else if (symbol == 'O') {
+      return o++;
+    }
   }
 }
