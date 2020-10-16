@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+  custom_splash: ^0.0.2
   
 
 
