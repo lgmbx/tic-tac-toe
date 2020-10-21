@@ -1,11 +1,13 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 import 'package:tictactoe/controllers/game_controller.dart';
 import 'package:tictactoe/core/constants.dart';
 import 'package:tictactoe/dialogs/custom_dialog.dart';
 import 'package:tictactoe/enums/winner_type.dart';
 import 'package:tictactoe/models/game_tile.dart';
-
-import '../core/constants.dart';
 
 class GamePage extends StatefulWidget {
   @override
@@ -27,7 +29,12 @@ class _GamePageState extends State<GamePage> {
     return AppBar(
       title: Text(GAME_TITLE),
       centerTitle: true,
-      actions: [IconButton(icon: Icon(Icons.share), onPressed: () {})],
+      actions: [
+        IconButton(
+          icon: Icon(Icons.share),
+          onPressed: () => _shareGame(context),
+        )
+      ],
     );
   }
 
@@ -228,6 +235,13 @@ class _GamePageState extends State<GamePage> {
           ),
         ),
       ),
+    );
+  }
+
+  _shareGame(BuildContext context) async {
+    await Share.share(
+      'Come play with me !',
+      subject: 'https://github.com/lgmbx/tic-tac-toe',
     );
   }
 }
