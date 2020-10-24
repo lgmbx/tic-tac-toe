@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -126,12 +125,8 @@ class _GamePageState extends State<GamePage> {
       child: Container(
         color: tile.color,
         child: Center(
-          child: Text(
-            tile.symbol,
-            style: TextStyle(
-              fontSize: 72.0,
-              color: Colors.white,
-            ),
+          child: Image(
+            image: AssetImage(tile.img),
           ),
         ),
       ),
@@ -240,8 +235,7 @@ class _GamePageState extends State<GamePage> {
 
   _shareGame(BuildContext context) async {
     await Share.share(
-      'Come play with me !',
-      subject: 'https://github.com/lgmbx/tic-tac-toe',
+      'Come play with me ! - https://github.com/lgmbx/tic-tac-toe',
     );
   }
 }

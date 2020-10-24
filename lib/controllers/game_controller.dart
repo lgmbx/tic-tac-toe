@@ -51,11 +51,13 @@ class GameController {
       tile.symbol = PLAYER1_SYMBOL;
       tile.color = PLAYER1_COLOR;
       movesPlayer1.add(tile.id);
+      tile.img = PLAYER1_IMG;
       currentPlayer = PlayerType.player2;
     } else {
       tile.symbol = PLAYER2_SYMBOL;
       tile.color = PLAYER2_COLOR;
       movesPlayer2.add(tile.id);
+      tile.img = PLAYER2_IMG;
       currentPlayer = PlayerType.player1;
     }
     tile.enable = false;

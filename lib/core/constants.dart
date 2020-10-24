@@ -4,9 +4,11 @@ const int BOARD_SIZE = 9;
 
 const String PLAYER1_SYMBOL = 'X';
 const Color PLAYER1_COLOR = Colors.red; // Alfa RGB (0xFFFF0000)
+const String PLAYER1_IMG = 'assets/beavis.png';
 
 const String PLAYER2_SYMBOL = 'O';
 const Color PLAYER2_COLOR = Colors.blue;
+const String PLAYER2_IMG = 'assets/butthead.png';
 
 const String GAME_TITLE = 'Tic Tac Toe';
 const String TIED_TITLE = 'Game Tied!';
