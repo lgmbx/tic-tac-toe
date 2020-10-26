@@ -86,9 +86,9 @@ class GameController {
   }
 
   scoreCount(String symbol) {
-    if (symbol == 'X') {
+    if (symbol == 'Beavis') {
       return x++;
-    } else if (symbol == 'O') {
+    } else if (symbol == 'Butt-head') {
       return o++;
     }
   }

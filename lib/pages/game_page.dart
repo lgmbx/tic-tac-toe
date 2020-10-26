@@ -74,7 +74,7 @@ class _GamePageState extends State<GamePage> {
             // mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'Player X',
+                'Beavis',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 20,
@@ -86,7 +86,7 @@ class _GamePageState extends State<GamePage> {
           Column(
             children: [
               Text(
-                'Player O',
+                'Butt-head',
                 style: TextStyle(
                   color: Theme.of(context).primaryColor,
                   fontSize: 20,
@@ -223,7 +223,7 @@ class _GamePageState extends State<GamePage> {
       ),
       child: Center(
         child: Text(
-          'Player turn: ' + _controller.currentPlayerTurn(),
+          _controller.currentPlayerTurn() + ' turn!',
           style: TextStyle(
             color: Theme.of(context).primaryColor,
             fontSize: 15,
